@@ -1,12 +1,12 @@
 from flask import Flask, request
 import parser
 
-app = Flask(__name__)
-@app.route('/keyboard')
+application = Flask(__name__)
+@application.route('/keyboard')
 def keyboard():
     key = '{"type":"buttons", "buttons":["오늘의 급식", "내일의 급식"]}'
     return key
-@app.route('/message')
+@application.route('/message')
 def message():
     if request.method == "POST":
         select = request.form["button"]
@@ -17,4 +17,4 @@ def message():
             menu = parser.tomorrow_menu()
             return menu
 if __name__ == '__main__':
-    app.run()
+    application.run(host='0.0.0.0')

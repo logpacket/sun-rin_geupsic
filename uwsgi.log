@@ -1,0 +1,35 @@
+*** Starting uWSGI 2.0.17 (64bit) on [Sat Mar 10 00:32:14 2018] ***
+compiled with version: 6.3.0 20170516 on 09 March 2018 14:58:24
+os: Linux-4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26)
+nodename: 150-95-179-45
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/sun-rin_geupsic
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 1881
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address sun-rin_geupsic.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.3 (default, Jan 19 2017, 14:11:04)  [GCC 6.3.0 20170118]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55c41af64440
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72904 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x55c41af64440 pid: 25582 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 25582, cores: 1)
