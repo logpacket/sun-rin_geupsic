@@ -23,11 +23,11 @@ def keyboard():
 @application.route('/message',methods=['POST','GET'])
 def message():
     if request.method == "POST":
-        select = request.form['button']
-        if select == '오늘의 급식':
+        select = request.get_json()
+        if select.content == '오늘의 급식':
             menu = today_menu()
             return menu
-        elif select == '내일의 급식':
+        elif select.content == '내일의 급식':
             menu = tomorrow_menu()
             return menu
 if __name__ == '__main__':
