@@ -23,8 +23,20 @@ def keyboard():
 def message():
     if request.method == "POST":
         select = request.get_json()
+        key = '{"type":"buttons", "buttons":["오늘의 급식", "내일의 급식"]}'
         if select['content'] == '오늘의 급식':
             menu = today_menu()
+            menu = menu.replace('\n', '')
+            menu = menu.replace('\r', '')
+            menu = menu.replace('\t', '')
+            menu = menu.replace(' ', '')
+            message = '{"message":{"text":'
+            message = message + '\"' + menu + '\"'+'}}' + ',' + key
+
+            print(message)
+            return message
+        elif select.content == '내일의 급식':
+            menu = tomorrow_menu()
             menu = menu.replace('\n', '')
             menu = menu.replace('\r', '')
             menu = menu.replace('\t', '')
@@ -33,8 +45,5 @@ def message():
             message = message + '\"' + menu + '\"'+'}}'
             print(message)
             return message
-        elif select.content == '내일의 급식':
-            menu = tomorrow_menu()
-            return menu
 if __name__ == '__main__':
     application.run(host='0.0.0.0')
