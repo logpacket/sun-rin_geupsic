@@ -9,7 +9,6 @@ soup = BeautifulSoup(html, 'html.parser')
 menu = soup.select(' dl > dd > p.menu')
 def today_menu():
     today = menu[0].text
-    print(today)
     return today
 def tomorrow_menu():
     tomorrow = menu[1].text
@@ -20,13 +19,19 @@ application = Flask(__name__)
 def keyboard():
     key = '{"type":"buttons", "buttons":["오늘의 급식", "내일의 급식"]}'
     return key
-@application.route('/message',methods=['POST','GET'])
+@application.route('/message',methods=['POST'])
 def message():
     if request.method == "POST":
         select = request.get_json()
-        if select.content == '오늘의 급식':
+        if select['content'] == '오늘의 급식':
             menu = today_menu()
-            return menu
+            menu = menu.replace('\t','')
+            menu = menu.replace('\r','')
+            message = '{"message":{"text":'
+            message = message +'\"'+menu+'\"'+'}}'
+            message = str(message)
+            print(message)
+            return message
         elif select.content == '내일의 급식':
             menu = tomorrow_menu()
             return menu
