@@ -29,8 +29,8 @@ def message():
             menu = menu.replace('\n', '')
             menu = menu.replace('\r', '')
             menu = menu.replace('\t', '')
-            menu = menu.replace(',', '\n')
-#            menu = menu.replace(' ', '')
+            menu = menu.replace(' ', '')
+#            menu = menu.replace(',', '\n')
 #            menu = menu.replace('(', '\n')
 #            menu = menu.replace(')', '')
             message = '{"message":{"text":'
