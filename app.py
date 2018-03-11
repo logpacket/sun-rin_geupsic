@@ -25,11 +25,12 @@ def message():
         select = request.get_json()
         if select['content'] == '오늘의 급식':
             menu = today_menu()
-            menu = menu.replace('\t','')
-            menu = menu.replace('\r','')
+            menu = menu.replace('\n', '')
+            menu = menu.replace('\r', '')
+            menu = menu.replace('\t', '')
+            menu = menu.replace(' ', '')
             message = '{"message":{"text":'
-            message = message +'\"'+menu+'\"'+'}}'
-            message = str(message)
+            message = message + '\"' + menu + '\"'+'}}'
             print(message)
             return message
         elif select.content == '내일의 급식':
