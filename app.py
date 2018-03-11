@@ -23,26 +23,31 @@ def keyboard():
 def message():
     if request.method == "POST":
         select = request.get_json()
-        key = '{"type":"buttons", "buttons":["오늘의 급식", "내일의 급식"]}'
+        key = '"keyboard":{"type":"buttons", "buttons":["오늘의 급식", "내일의 급식"]}}'
         if select['content'] == '오늘의 급식':
             menu = today_menu()
             menu = menu.replace('\n', '')
             menu = menu.replace('\r', '')
             menu = menu.replace('\t', '')
+            menu = menu.replace(',', '\n')
             menu = menu.replace(' ', '')
+            menu = menu.replace('(', '\n')
+            menu = menu.replace(')', '')
             message = '{"message":{"text":'
-            message = message + '\"' + menu + '\"'+'}}' + ',' + key
-
+            message = message + '\"' + menu + '\"'+'}' + ',' + key
             print(message)
             return message
-        elif select.content == '내일의 급식':
+        elif select['content'] == '내일의 급식':
             menu = tomorrow_menu()
             menu = menu.replace('\n', '')
             menu = menu.replace('\r', '')
             menu = menu.replace('\t', '')
             menu = menu.replace(' ', '')
+            menu = menu.replace(',', '\n')
+            menu = menu.replace('(', '\n')
+            menu = menu.replace(')', '')
             message = '{"message":{"text":'
-            message = message + '\"' + menu + '\"'+'}}'
+            message = message + '\"' + menu + '\"'+'}' + ',' + key
             print(message)
             return message
 if __name__ == '__main__':
