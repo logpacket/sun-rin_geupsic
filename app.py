@@ -30,9 +30,9 @@ def message():
             menu = menu.replace('\r', '')
             menu = menu.replace('\t', '')
             menu = menu.replace(' ', '')
-#            menu = menu.replace(',', '\n')
-#            menu = menu.replace('(', '\n')
-#            menu = menu.replace(')', '')
+            menu = menu.replace(',', '\\n')
+            menu = menu.replace('(', '\\n')
+            menu = menu.replace(')', '')
             message = '{"message":{"text":'
             message = message + '\"' + menu + '\"'+'}' + ',' + key
             print(message)
@@ -43,9 +43,9 @@ def message():
             menu = menu.replace('\r', '')
             menu = menu.replace('\t', '')
             menu = menu.replace(' ', '')
-#            menu = menu.replace(',', '\n')
-#            menu = menu.replace('(', '\n')
-#            menu = menu.replace(')', '')
+            menu = menu.replace(',', '\\n')
+            menu = menu.replace('(', '\\n')
+            menu = menu.replace(')', '')
             message = '{"message":{"text":'
             message = message + '\"' + menu + '\"'+'}' + ',' + key
             print(message)
