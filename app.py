@@ -2,15 +2,18 @@
 from flask import Flask, request
 import requests
 from bs4 import BeautifulSoup
-
-req = requests.get('http://www.sunrint.hs.kr/index.do')
-html = req.text
-soup = BeautifulSoup(html, 'html.parser')
-menu = soup.select(' dl > dd > p.menu')
+def parse():
+    req = requests.get('http://www.sunrint.hs.kr/index.do')
+    html = req.text
+    soup = BeautifulSoup(html, 'html.parser')
+    menu = soup.select(' dl > dd > p.menu')
+    return menu
 def today_menu():
+    menu = parse()
     today = menu[0].text
     return today
 def tomorrow_menu():
+    menu = parse()
     tomorrow = menu[1].text
     return tomorrow
 
