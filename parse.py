@@ -19,6 +19,5 @@ html = req.text
 soup = BeautifulSoup(html, 'html.parser')
 menu = soup.select(' dl > dd > p.menu')
 
-print(create_form(menu[0].text))
 today.write(create_form(menu[0].text))
 tomorrow.write(create_form(menu[1].text))
