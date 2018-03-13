@@ -36,9 +36,7 @@ def message():
             menu = menu.replace(',', '\\n')
             menu = menu.replace('(', '\\n')
             menu = menu.replace(')', '')
-            message = '{"message":{"text":'
-            message = message + '\"' + menu + '\"'+'}' + ',' + key
-            print(message)
+            message = '{"message":{"text":' + '\"' + menu + '\"'+'}' + ',' + key
             return message
         elif select['content'] == '내일의 급식':
             menu = tomorrow_menu()
@@ -49,9 +47,10 @@ def message():
             menu = menu.replace(',', '\\n')
             menu = menu.replace('(', '\\n')
             menu = menu.replace(')', '')
-            message = '{"message":{"text":'
-            message = message + '\"' + menu + '\"'+'}' + ',' + key
-            print(message)
+            message = '{"message":{"text":' + '\"' + menu + '\"'+'}' + ',' + key
             return message
 if __name__ == '__main__':
     application.run(host='0.0.0.0')
+
+
+
